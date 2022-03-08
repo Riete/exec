@@ -1,6 +1,7 @@
 package exec
 
 import (
+	"context"
 	"os/exec"
 	"strings"
 )
@@ -24,4 +25,8 @@ func (c Cmd) Run() (string, error) {
 
 func NewCmdRunner(name string, args ...string) *Cmd {
 	return &Cmd{cmd: exec.Command(name, args...)}
+}
+
+func NewCmdCtxRunner(ctx context.Context, name string, args ...string) *Cmd {
+	return &Cmd{cmd: exec.CommandContext(ctx, name, args...)}
 }
