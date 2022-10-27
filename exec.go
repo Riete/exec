@@ -10,7 +10,6 @@ import (
 
 type Cmd struct {
 	cmd *exec.Cmd
-	ctx context.Context
 }
 
 func (c *Cmd) SetCmd(name string, args ...string) {
