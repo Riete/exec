@@ -18,7 +18,7 @@ type Cmd struct {
 	cmd *exec.Cmd
 }
 
-// SetCmd name is command path, i.e echo, awk, /path/to/executable, args is command's arguments
+// SetCmd name is command path, i.e. echo, awk, /path/to/executable, args is command's arguments
 func (c *Cmd) SetCmd(name string, args ...string) {
 	c.SetCmdWithContext(context.Background(), name, args...)
 }
