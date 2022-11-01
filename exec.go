@@ -16,7 +16,6 @@ func BytesToString(b []byte) string {
 
 type Cmd struct {
 	cmd *exec.Cmd
-	ctx context.Context
 }
 
 // SetCmd name is command path, i.e echo, awk, /path/to/executable, args is command's arguments
