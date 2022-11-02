@@ -47,9 +47,7 @@ func (c Cmd) SetStdin(r io.Reader) {
 
 // SetStdinString pass string as stdin
 func (c Cmd) SetStdinString(s string) {
-	var b bytes.Buffer
-	b.WriteString(s)
-	c.cmd.Stdin = &b
+	c.cmd.Stdin = bytes.NewBufferString(s)
 }
 
 // RunWithCombinedOutput return stdout and stderr together
