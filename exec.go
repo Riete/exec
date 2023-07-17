@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 	"io"
+	"os"
 	"os/exec"
 	"strings"
 	"unsafe"
@@ -33,6 +34,7 @@ func (c Cmd) SetEnv(env map[string]string) {
 	for k, v := range env {
 		c.cmd.Env = append(c.cmd.Env, fmt.Sprintf("%s=%s", k, v))
 	}
+	c.cmd.Env = append(c.cmd.Env, os.Environ()...)
 }
 
 // SetDir set working dir for command when it running
